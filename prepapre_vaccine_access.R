@@ -134,9 +134,9 @@ ggplot(developer_earnings,
         axis.ticks.y = element_blank(),
         plot.title = element_text(
           size = rel(1.5), 
-          face = "bold")) -> developer_earnings
+          face = "bold")) -> developer_earnings_plot
 
-save_plot(developer_earnings, 
+save_plot(developer_earnings_plot, 
           file = "developer_earnings.svg", 
           base_width = 12, 
           base_height = 8)
@@ -183,9 +183,15 @@ ggplot(country_earnings,
         axis.ticks.y = element_blank(),
         plot.title = element_text(
           size = rel(1.5), 
-          face = "bold")) -> country_earnings
+          face = "bold")) -> country_earnings_plot
 
-save_plot(country_earnings, 
+save_plot(country_earnings_plot, 
           file = "country_earnings.svg", 
           base_width = 12, 
           base_height = 8)
+
+save(vaccine_earnings,developer_earnings,country_earnings,file = "vaccine_access_data.RData")
+
+write.csv(vaccine_earnings,"vaccine_earnings.csv")
+write.csv(developer_earnings,"developer_earnings.csv")
+write.csv(country_earnings,"country_earnings.csv")
